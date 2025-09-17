@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+
 ---
 <!doctype html>
 <html lang="en">
@@ -11,6 +13,7 @@ import "../styles/global.css";
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<Nav t={Astro.props.t} changeLanguage={Astro.props.changeLanguage} language={Astro.props.language} />
 		<slot />
 	</body>
 </html>
