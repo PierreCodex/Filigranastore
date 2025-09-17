@@ -1,0 +1,26 @@
+---
+import Cards from './Cards.astro';
+---
+<main class="w-[85vw] max-md:w-[75%]  m-auto flex flex-col mt-10 gap-40">
+  <section class="flex justify-between items-center mt-24">
+    <article class="flex flex-col gap-3 relative">
+      <h2 class="text-[#d5f904] text-2xl">Trading</h2>
+      <h1 class="text-white text-5xl">Auctions</h1>
+              <img class="w-44 absolute left-56 top-24" src="/absolute.png" alt=" absolute image">
+
+    </article>
+    <article>
+      <p class="text-gray-400">
+        Buy and sell NFTs form the words top artist,<br> More than 10,000 premium
+        digital.
+      </p>
+    </article>
+    <article class="flex  gap-7 " >
+        <button class="rounded-2xl shadow shadow-white p-5"><img class="w-11" src="/right.svg" alt=""></button> 
+
+        <button class="rounded-2xl bg-white p-5 shadow shadow-white"><img class="w-11" src="/left.svg" alt=""></button>
+    </article>
+  </section>
+<section class="flex items-center  justify-center w-full"><Cards/></section>
+  
+</main>

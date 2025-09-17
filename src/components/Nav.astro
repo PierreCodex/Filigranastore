@@ -1,0 +1,54 @@
+<nav class="flex justify-between items-center">
+  <div class="text-white text-2xl">FREAKISH MIND</div>
+  <header id="Home" class="flex items-center justify-center relative">
+    <ul class="flex gap-8 items-center fixed transition z-50">
+      <li
+        class="text-white/70 hover:text-[#D5F904] transition hover:drop-shadow-[0_5px_15px_rgba(255,255,255)] font-semibold text-lg"
+      >
+        <a class="" href="#Home">Discover</a>
+      </li>
+      <li
+        class="text-white/70 hover:text-[#D5F904] transition hover:drop-shadow-[0_5px_15px_rgba(255,255,255)] font-semibold text-lg"
+      >
+        <a class="" href="#About">Marketplace</a>
+      </li>
+      <li
+        class="text-white/70 hover:text-[#D5F904] transition hover:drop-shadow-[0_5px_15px_rgba(255,255,255)] font-semibold text-lg"
+      >
+        <a class="" href="#Projects">About</a>
+      </li>
+      <li
+        class="text-white/70 hover:text-[#D5F904] transition hover:drop-shadow-[0_5px_15px_rgba(255,255,255)] font-semibold text-lg"
+      >
+        <a class="" href="#Contact">Contact</a>
+      </li>
+    </ul>
+  </header>
+  <div class="inline-flex items-center gap-3"><img class="w-6" src="/search.svg" alt="search un svg"> <button class="text-white border-2 border-[#D5F904] rounded-full py-2 px-4 text-sm cursor-pointer hover:border-white ">Connect Wallet</button></div>
+</nav>
+<script type="module">
+  window.addEventListener("scroll", () => {
+    let nav = document.querySelector("ul");
+    nav.classList.toggle("stic", window.scrollY > 0);
+  }); 
+</script>
+
+<style>
+  header[id] {
+    scroll-margin-top: 500px;
+  }
+  .stic {
+    background-color: rgba(255, 255, 255, 0.193);
+    color: aqua;
+    padding: 8px 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(2rem);
+  }
+  .stic li {
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+  }
+  .stic li:hover {
+    color: rgb(4, 253, 29);
+  }
+</style>
