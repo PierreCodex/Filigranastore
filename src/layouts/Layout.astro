@@ -11,6 +11,7 @@ import Nav from "../components/Nav.astro";
 		<link rel="icon" type="image/svg+xml" href="/logo.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 	</head>
 	<body>
 		<Nav t={Astro.props.t} changeLanguage={Astro.props.changeLanguage} language={Astro.props.language} />
