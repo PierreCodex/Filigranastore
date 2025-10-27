@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Paleta de colores elegante y sofisticada para filigrana */
+:root {
+  --ivory: #F5F5DC;
+  --cream: #FFFFF0;
+  --warm-gray-light: #E0E0E0;
+  --warm-gray-lighter: #F0F0F0;
+  --charcoal: #333333;
+  --charcoal-dark: #1C1C1C;
+  --gold: #D4AF37;
+  --bronze: #B87333;
+  --copper: #CD7F32;
+}
+
+/* Estilos base personalizados */
+@layer base {
+  body {
+    @apply bg-cream text-charcoal;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-charcoal-dark;
+  }
+}
+
+/* Componentes personalizados */
+@layer components {
+  .btn-primary {
+    @apply bg-gold hover:bg-bronze text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-bronze hover:bg-gold text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card-elegant {
+    @apply bg-ivory border border-warm-gray-light rounded-lg shadow-sm;
+  }
+  
+  .text-accent {
+    @apply text-gold;
+  }
+  
+  .bg-section {
+    @apply bg-warm-gray-lighter;
+  }
+}

@@ -1,0 +1,213 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import ProductDetail from '../../components/ProductDetail.astro';
+
+// Datos de productos (mismos que en marketplace.astro)
+const products = [
+  {
+    id: 1,
+    name: "Aretes de Filigrana Clásicos",
+    category: "Joyería Femenina",
+    price: "S/ 120.00",
+    image: "/AretesGuia.png",
+    description: "Elegantes aretes elaborados con técnica tradicional de filigrana en plata 950. Diseño clásico que resalta la belleza femenina.",
+    details: ["Material: Plata 950", "Técnica: Filigrana tradicional", "Peso: 8 gramos", "Dimensiones: 3cm x 2cm"],
+    whatsappMessage: "Hola, me interesa el producto: Aretes de Filigrana Clásicos - S/ 120.00"
+  },
+  {
+    id: 2,
+    name: "Aretes Pequeños Delicados",
+    category: "Joyería Femenina",
+    price: "S/ 85.00",
+    image: "/aretespequeños.jpg",
+    description: "Aretes pequeños y delicados perfectos para uso diario. Elaborados con filigrana fina en plata.",
+    details: ["Material: Plata 925", "Técnica: Filigrana fina", "Peso: 4 gramos", "Dimensiones: 1.5cm x 1cm"],
+    whatsappMessage: "Hola, me interesa el producto: Aretes Pequeños Delicados - S/ 85.00"
+  },
+  {
+    id: 3,
+    name: "Pavo Real en Filigrana",
+    category: "Figuras Escultóricas",
+    price: "S/ 450.00",
+    image: "/Pavo.jpg",
+    description: "Majestuosa figura de pavo real elaborada completamente en filigrana de plata. Pieza única de colección.",
+    details: ["Material: Plata 950", "Técnica: Filigrana escultórica", "Peso: 180 gramos", "Dimensiones: 15cm x 12cm x 8cm"],
+    whatsappMessage: "Hola, me interesa el producto: Pavo Real en Filigrana - S/ 450.00"
+  },
+  {
+    id: 4,
+    name: "Caballo de Filigrana",
+    category: "Figuras Escultóricas",
+    price: "S/ 380.00",
+    image: "/caballo.png",
+    description: "Elegante figura de caballo en posición de galope, elaborada con técnica de filigrana tradicional.",
+    details: ["Material: Plata 950", "Técnica: Filigrana tradicional", "Peso: 150 gramos", "Dimensiones: 12cm x 10cm x 6cm"],
+    whatsappMessage: "Hola, me interesa el producto: Caballo de Filigrana - S/ 380.00"
+  },
+  {
+    id: 5,
+    name: "Prendedor Colibrí",
+    category: "Prendedores",
+    price: "S/ 95.00",
+    image: "/PrendedorColibri.jpg",
+    description: "Delicado prendedor en forma de colibrí, perfecto para adornar blusas y vestidos con elegancia.",
+    details: ["Material: Plata 925", "Técnica: Filigrana delicada", "Peso: 12 gramos", "Dimensiones: 4cm x 3cm"],
+    whatsappMessage: "Hola, me interesa el producto: Prendedor Colibrí - S/ 95.00"
+  },
+  {
+    id: 6,
+    name: "Anillo de Filigrana Masculino",
+    category: "Joyería Masculina",
+    price: "S/ 180.00",
+    image: "/mono.png",
+    description: "Robusto anillo masculino con diseño de filigrana tradicional, símbolo de elegancia y distinción.",
+    details: ["Material: Plata 950", "Técnica: Filigrana robusta", "Peso: 25 gramos", "Tallas: 18-24"],
+    whatsappMessage: "Hola, me interesa el producto: Anillo de Filigrana Masculino - S/ 180.00"
+  },
+  {
+    id: 7,
+    name: "Portada Decorativa",
+    category: "Objetos Decorativos",
+    price: "S/ 320.00",
+    image: "/Portala.jpg",
+    description: "Elegante portada decorativa con motivos tradicionales de filigrana, ideal para decoración del hogar.",
+    details: ["Material: Plata 925", "Técnica: Filigrana decorativa", "Peso: 120 gramos", "Dimensiones: 20cm x 15cm"],
+    whatsappMessage: "Hola, me interesa el producto: Portada Decorativa - S/ 320.00"
+  },
+  {
+    id: 8,
+    name: "Cruz de Filigrana",
+    category: "Artículos Religiosos",
+    price: "S/ 150.00",
+    image: "/Se.png",
+    description: "Cruz religiosa elaborada en filigrana de plata, ideal para devoción personal o regalo especial.",
+    details: ["Material: Plata 925", "Técnica: Filigrana religiosa", "Peso: 25 gramos", "Dimensiones: 6cm x 4cm"],
+    whatsappMessage: "Hola, me interesa el producto: Cruz de Filigrana - S/ 150.00"
+  }
+];
+
+// Función para generar rutas estáticas
+export async function getStaticPaths() {
+  return products.map(product => ({
+    params: { id: product.id.toString() },
+    props: { product }
+  }));
+}
+
+const whatsappNumber = "51987654321";
+
+// Obtener el producto actual
+const { id } = Astro.params;
+const { product } = Astro.props;
+
+// Si no se encuentra el producto, redirigir al marketplace
+if (!product) {
+  return Astro.redirect('/marketplace');
+}
+
+// Productos relacionados (misma categoría, excluyendo el actual)
+const relatedProducts = products
+  .filter(p => p.category === product.category && p.id !== product.id)
+  .slice(0, 3);
+---
+
+<Layout title={`${product.name} - Filigranas Catacaos`}>
+  <Nav />
+  
+  <main class="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 pt-20">
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center space-x-2 text-sm text-gray-600">
+        <a href="/" class="hover:text-amber-600 transition-colors">Inicio</a>
+        <span>/</span>
+        <a href="/marketplace" class="hover:text-amber-600 transition-colors">Marketplace</a>
+        <span>/</span>
+        <span class="text-amber-600 font-medium">{product.name}</span>
+      </nav>
+    </div>
+
+    <!-- Componente de detalle del producto -->
+    <ProductDetail product={product} whatsappNumber={whatsappNumber} />
+
+    <!-- Productos relacionados -->
+    {relatedProducts.length > 0 && (
+      <section class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+          Productos Relacionados
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {relatedProducts.map(relatedProduct => (
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div class="aspect-square overflow-hidden">
+                <img 
+                  src={relatedProduct.image} 
+                  alt={relatedProduct.name}
+                  class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-medium text-amber-600 bg-amber-100 px-2 py-1 rounded-full">
+                    {relatedProduct.category}
+                  </span>
+                  <span class="text-lg font-bold text-gray-800">{relatedProduct.price}</span>
+                </div>
+                
+                <h3 class="text-xl font-semibold text-gray-800 mb-3 line-clamp-2">
+                  {relatedProduct.name}
+                </h3>
+                
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {relatedProduct.description}
+                </p>
+                
+                <div class="flex gap-3">
+                  <a 
+                    href={`/producto/${relatedProduct.id}`}
+                    class="flex-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-lg font-medium text-center hover:from-amber-600 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+                  >
+                    Ver Producto
+                  </a>
+                  
+                  <a 
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(relatedProduct.whatsappMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-green-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center"
+                    title="Comprar por WhatsApp"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -1,42 +1,42 @@
 ---
-// Componente FAQ tipo acordeón
 const faqs = [
   {
-    question: '¿Qué es la filigrana de Catacaos?',
-    answer: 'La filigrana de Catacaos es una técnica artesanal tradicional de Piura, Perú, que consiste en crear joyas y objetos decorativos con hilos finos de plata, formando delicados y complejos diseños.'
+    question: "¿Qué es la filigrana de Catacaos?",
+    answer: "La filigrana de Catacaos es una técnica artesanal ancestral que consiste en crear delicadas joyas utilizando hilos muy finos de plata u oro, formando intrincados diseños. Esta técnica fue declarada Patrimonio Cultural de la Nación en 2010."
   },
   {
-    question: '¿Qué productos ofrecen?',
-    answer: 'Ofrecemos una variedad de joyas de filigrana como aretes, anillos, collares, prendedores y piezas decorativas, todas hechas a mano por artesanos de Catacaos.'
+    question: "¿Cuánto tiempo toma crear una pieza de filigrana?",
+    answer: "El tiempo varía según la complejidad de la pieza. Una pieza sencilla puede tomar varios días, mientras que las más elaboradas pueden requerir semanas o incluso meses de trabajo artesanal."
   },
   {
-    question: '¿Realizan envíos a todo el Perú?',
-    answer: 'Sí, realizamos envíos a todo el Perú y también al extranjero. Todos los pedidos son cuidadosamente empacados para garantizar su seguridad.'
+    question: "¿Las piezas son 100% hechas a mano?",
+    answer: "Sí, todas nuestras piezas son elaboradas completamente a mano por artesanos especializados en la técnica de filigrana, siguiendo métodos tradicionales transmitidos de generación en generación."
   },
   {
-    question: '¿Cómo puedo comprar una pieza?',
-    answer: 'Puedes comprar directamente desde nuestra web seleccionando la pieza que te guste y siguiendo el proceso de compra. Si tienes dudas, puedes contactarnos por WhatsApp o correo.'
+    question: "¿Qué materiales utilizan?",
+    answer: "Utilizamos principalmente plata de ley 950 y oro de 18 quilates. Algunos diseños pueden incluir piedras preciosas o semipreciosas como complemento a la filigrana."
   },
   {
-    question: '¿Las piezas son de plata auténtica?',
-    answer: 'Sí, todas nuestras piezas están elaboradas en plata 950 auténtica, garantizando calidad y tradición.'
+    question: "¿Realizan envíos a nivel nacional?",
+    answer: "Sí, realizamos envíos a todo el Perú. Cada pieza se empaca cuidadosamente para garantizar que llegue en perfectas condiciones."
   },
   {
-    question: '¿Puedo solicitar un diseño personalizado?',
-    answer: '¡Por supuesto! Si deseas una pieza personalizada, contáctanos y nuestros artesanos podrán crear un diseño único para ti.'
+    question: "¿Ofrecen garantía en sus productos?",
+    answer: "Todas nuestras piezas cuentan con garantía de calidad y autenticidad. Además, ofrecemos servicio de mantenimiento y reparación para conservar la belleza de tu joya."
   }
 ];
 ---
-<section class="w-full max-w-md md:max-w-2xl mx-auto my-12 mb-100 px-2 sm:px-4 md:px-0 pt-8 md:pt-[20px]">
-  <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 mt-40 text-center">Preguntas frecuentes</h2>
+
+<section class="w-full max-w-md md:max-w-2xl mx-auto my-8 mb-20 px-2 sm:px-4 md:px-0 pt-4 md:pt-[10px]">
+  <h2 class="text-2xl md:text-3xl font-bold text-charcoal mb-6 mt-16 text-center">Preguntas frecuentes</h2>
   <div class="flex flex-col gap-3">
     {faqs.map((faq) => (
-      <details class="group bg-[#232323] text-white rounded-lg overflow-hidden shadow-md transition-all duration-200">
-        <summary class="flex justify-between items-center cursor-pointer px-4 md:px-6 py-4 md:py-5 text-base md:text-lg font-medium select-none group-open:bg-[#333] transition-colors">
+      <details class="group bg-ivory border border-warm-gray-light text-charcoal rounded-lg overflow-hidden shadow-md transition-all duration-200">
+        <summary class="flex justify-between items-center cursor-pointer px-4 md:px-6 py-4 md:py-5 text-base md:text-lg font-medium select-none group-open:bg-cream transition-colors">
           {faq.question}
-          <span class="text-2xl transition-transform group-open:rotate-45">+</span>
+          <span class="text-2xl transition-transform group-open:rotate-45 text-gold">+</span>
         </summary>
-        <div class="px-4 md:px-6 pb-4 md:pb-5 text-gray-300 text-sm md:text-base leading-relaxed">
+        <div class="px-4 md:px-6 pb-4 md:pb-5 text-warm-gray-dark text-sm md:text-base leading-relaxed">
           {faq.answer}
         </div>
       </details>

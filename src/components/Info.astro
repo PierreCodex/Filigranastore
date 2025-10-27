@@ -1,31 +1,45 @@
 ---
 import Cards from './Cards.astro';
 ---
-<main class="w-[85vw] max-md:w-[75%] m-auto flex flex-col mt-10 gap-8 md:gap-40 h-[140%] mb-16 md:mb-0">  <section class="flex flex-col md:flex-row justify-between items-center mt-24 gap-6 md:gap-0">
-    <article class="flex flex-col gap-3 relative md:w-auto w-full">
-      <h2 class="text-[#d5f904] text-2xl">Top Filigrana</h2>
-      <h1 class="text-white text-5xl md:text-5xl text-4xl">VENDIDOS</h1>
-      <img class="w-44 absolute left-56 top-24 hidden md:block" src="/absolute.png" alt="Decoración filigrana">
-      <!-- Párrafo destacado solo en mobile -->
-      <div class="block md:hidden bg-[#181818] bg-opacity-80 rounded-xl shadow-lg p-4 mt-4 w-full">
-        <p class="text-gray-200 text-base text-center">
-          Descubre las piezas de filigrana más vendidas y apreciadas por nuestros clientes.<br>
-          Artesanía peruana de Catacaos, calidad y tradición en cada joya.
+<main class="w-[85vw] max-md:w-[75%] m-auto flex flex-col mt-6 gap-8 md:gap-20 h-[140%] mb-8 md:mb-0">
+  <!-- Sección principal: Información y foto del maestro en dos columnas -->
+  <section class="flex flex-col md:flex-row justify-between items-start mt-12 gap-8 md:gap-12">
+    <!-- Columna izquierda: Información del maestro -->
+    <div class="flex flex-col gap-6 md:w-1/2">
+      <div class="flex flex-col gap-3">
+        <h2 class="text-gold text-2xl">Maestro Artesano</h2>
+        <h1 class="text-charcoal text-4xl md:text-5xl font-bold">VICTOR HUGO YARLEQUE</h1>
+      </div>
+      
+      <div class="text-charcoal text-base md:text-lg leading-relaxed space-y-4">
+        <p>
+          Victor Hugo Yarleque, nacido en Catacaos, Piura, desciende de una familia de plateros con larga trayectoria, especializada en la técnica de la filigrana. Desde muy temprana edad aprendió el oficio siguiendo el ejemplo de su padre, Nicolás Yarleque, gran maestro platero. Don Víctor Hugo, quien cuenta con 40 años de trayectoria, ha asistido a ferias y exposiciones a nivel nacional e internacional (Colombia, Ecuador, Estados Unidos, México y Francia). Asimismo, por su destacada labor ha recibido reconocimientos del Patronato Plata del Perú, del Congreso de la República, del Ministerio de Comercio Exterior y Turismo, y del Ministerio de Cultura, distinguiéndole este último, en 2018, como Personalidad Meritoria de la Cultura por su aporte para la vigencia de la técnica artística de la filigrana, la cual forma parte de la identidad cultural del pueblo piurano. La platería de Catacaos fue declarada Patrimonio Cultural de la Nación en el año 2010.
         </p>
       </div>
-    </article>
-    <!-- Párrafo solo en desktop -->
-    <article class="hidden md:block md:w-1/2">
-      <p class="text-gray-400 text-lg">
-        Descubre las piezas de filigrana más vendidas y apreciadas por nuestros clientes.<br>
-        Artesanía peruana de Catacaos, calidad y tradición en cada joya.
-      </p>
-    </article>
-    <article class="flex gap-7 md:w-auto w-full justify-center md:justify-end mt-4 md:mt-0">
-      <button class="rounded-2xl shadow shadow-white p-5"><img class="w-11" src="/right.svg" alt="Siguiente"></button>
-      <button class="rounded-2xl bg-white p-5 shadow shadow-white"><img class="w-11" src="/left.svg" alt="Anterior"></button>
-    </article>
+    </div>
+
+    <!-- Columna derecha: Foto del artesano -->
+    <div class="flex justify-center items-start md:w-1/2">
+      <div class="bg-ivory bg-opacity-95 border-2 border-gold rounded-2xl shadow-2xl p-6 md:p-8 max-w-md w-full">
+        <div class="flex flex-col items-center gap-4">
+          <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-4 border-bronze shadow-lg bg-warm-gray-light flex items-center justify-center">
+            <!-- Foto del maestro Victor Hugo Yarleque -->
+            <img 
+              src="/arturo.png" 
+              alt="Maestro Victor Hugo Yarleque - Artesano de filigrana de Catacaos" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="text-center">
+            <h3 class="text-charcoal text-xl font-bold mb-2">Maestro Artesano</h3>
+            <p class="text-gold text-lg font-semibold">Victor Hugo Yarleque</p>
+            <p class="text-warm-gray-dark text-sm mt-2">40 años de experiencia en filigrana</p>
+            <p class="text-warm-gray-dark text-sm">Catacaos, Piura - Perú</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
-<section class="flex items-center justify-center w-full mb-44 md:mb-0"><Cards/></section>
-  
+
+  <section class="flex items-center justify-center w-full mb-20 md:mb-0"><Cards/></section>
 </main>

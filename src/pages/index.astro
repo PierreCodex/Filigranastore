@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Main from '../components/Main.astro';
 import Info from '../components/Info.astro';
+import FeaturedProducts from '../components/FeaturedProducts.astro';
 import Motivos from '../components/Motivos.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
@@ -14,14 +15,20 @@ import Footer from '../components/Footer.astro';
 
 <Layout>
   <div class="w-full overflow-x-hidden">
-    <main class="w-[90vw] max-w-[1400px] bg-[#111111] mx-auto flex flex-col mt-10">
+    <main class="w-[90vw] max-w-[1400px] bg-cream mx-auto flex flex-col mt-4">
       <Main/>
     </main>
-    <main class="w-full h-full bg-black" id="About">
+    <main class="w-full h-full bg-ivory" id="About">
       <div class="w-[90vw] max-w-[1400px] mx-auto">
         <Info/>
       </div>
     </main>
+    
+    <!-- Sección de productos destacados -->
+    <main class="w-full h-full bg-cream">
+      <FeaturedProducts/>
+    </main>
+  
     <div class="w-[90vw] max-w-[1400px] mx-auto">
       <Motivos/>
     </div>

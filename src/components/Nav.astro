@@ -1,20 +1,20 @@
 
 
-<nav class="fixed top-0 left-0 w-full bg-[#181818] bg-opacity-95 shadow-sm z-50">
+<nav class="fixed top-0 left-0 w-full bg-ivory bg-opacity-95 shadow-lg border-b border-warm-gray-light z-50">
   <div class="w-full flex items-center justify-between px-4 md:px-12 py-3">
     <a href="/" class="flex items-center gap-2">
-      <img src="/logo.png" alt="Filigrana Catacaos logo" class="h-10 w-auto" />
+      <img src="/tiendalogo.png" alt="Filigrana Catacaos logo" class="h-10 w-auto" />
       <span class="sr-only">Filigrana Catacaos</span>
     </a>
     <!-- Desktop menu -->
     <ul class="hidden md:flex gap-10 items-center ml-auto">
-      <li><a href="/" class="font-semibold text-base text-white/80 hover:text-[#D5F904] transition">Inicio</a></li>
-      <li><a href="/marketplace" class="font-semibold text-base text-white/80 hover:text-[#D5F904] transition">Marketplace</a></li>
-      <li><a href="/about" class="font-semibold text-base text-white/80 hover:text-[#D5F904] transition">Sobre nosotros</a></li>
-      <li><a href="/contact" class="font-semibold text-base text-white/80 hover:text-[#D5F904] transition">Contacto</a></li>
+      <li><a href="/" class="font-semibold text-base text-charcoal hover:text-gold transition-colors duration-200">Inicio</a></li>
+      <li><a href="/marketplace" class="font-semibold text-base text-charcoal hover:text-gold transition-colors duration-200">Marketplace</a></li>
+      <li><a href="#About" class="font-semibold text-base text-charcoal hover:text-gold transition-colors duration-200">Sobre nosotros</a></li>
+      <li><a href="/contact" class="font-semibold text-base text-charcoal hover:text-gold transition-colors duration-200">Contacto</a></li>
     </ul>
     <!-- Mobile menu button -->
-    <button id="menu-toggle" class="md:hidden text-white focus:outline-none ml-2" aria-label="Abrir menú de navegación">
+    <button id="menu-toggle" class="md:hidden text-charcoal focus:outline-none ml-2" aria-label="Abrir menú de navegación">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -22,21 +22,21 @@
   </div>
   <!-- Mobile menu -->
   <div id="nav-menu-mobile" class="fixed inset-0 z-50 flex items-center justify-center transition-transform duration-300 ease-in-out translate-x-full md:hidden">
-    <div class="absolute inset-0 bg-black bg-opacity-70 backdrop-blur-md"></div>
-    <button id="close-mobile-menu" class="absolute top-6 right-6 text-white text-3xl z-50" aria-label="Cerrar menú">
+    <div class="absolute inset-0 bg-charcoal-dark bg-opacity-70 backdrop-blur-md"></div>
+    <button id="close-mobile-menu" class="absolute top-6 right-6 text-cream text-3xl z-50" aria-label="Cerrar menú">
       &times;
     </button>
-    <div class="relative z-50 flex flex-col items-center w-full max-w-xs mx-auto py-8 px-4 bg-[#181818] bg-opacity-80 rounded-xl shadow-2xl">
-      <div class="text-2xl font-bold text-white mb-6 tracking-wide border-b border-[#D5F904] pb-2 w-full text-center">Filigrana Catacaos</div>
+    <div class="relative z-50 flex flex-col items-center w-full max-w-xs mx-auto py-8 px-4 bg-ivory bg-opacity-95 rounded-xl shadow-2xl border border-warm-gray-light">
+      <div class="text-2xl font-bold text-charcoal-dark mb-6 tracking-wide border-b border-gold pb-2 w-full text-center">Filigrana Catacaos</div>
       <ul class="flex flex-col gap-6 w-full items-center">
-        <li><a href="/" class="text-white text-xl font-semibold tracking-wide hover:text-[#D5F904] transition border-b-2 border-transparent hover:border-[#D5F904] pb-1 w-full text-center">Inicio</a></li>
-        <li><a href="/marketplace" class="text-white text-xl font-semibold tracking-wide hover:text-[#D5F904] transition border-b-2 border-transparent hover:border-[#D5F904] pb-1 w-full text-center">Marketplace</a></li>
-        <li><a href="/about" class="text-white text-xl font-semibold tracking-wide hover:text-[#D5F904] transition border-b-2 border-transparent hover:border-[#D5F904] pb-1 w-full text-center">Sobre nosotros</a></li>
-        <li><a href="/contact" class="text-white text-xl font-semibold tracking-wide hover:text-[#D5F904] transition border-b-2 border-transparent hover:border-[#D5F904] pb-1 w-full text-center">Contacto</a></li>
+        <li><a href="/" class="text-charcoal text-xl font-semibold tracking-wide hover:text-gold transition-colors duration-200 border-b-2 border-transparent hover:border-gold pb-1 w-full text-center">Inicio</a></li>
+        <li><a href="/marketplace" class="text-charcoal text-xl font-semibold tracking-wide hover:text-gold transition-colors duration-200 border-b-2 border-transparent hover:border-gold pb-1 w-full text-center">Marketplace</a></li>
+        <li><a href="#About" class="text-charcoal text-xl font-semibold tracking-wide hover:text-gold transition-colors duration-200 border-b-2 border-transparent hover:border-gold pb-1 w-full text-center">Sobre nosotros</a></li>
+        <li><a href="/contact" class="text-charcoal text-xl font-semibold tracking-wide hover:text-gold transition-colors duration-200 border-b-2 border-transparent hover:border-gold pb-1 w-full text-center">Contacto</a></li>
       </ul>
     </div>
   </div>
-  <div id="nav-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden md:hidden"></div>
+  <div id="nav-overlay" class="fixed inset-0 bg-charcoal-dark bg-opacity-50 z-30 hidden md:hidden"></div>
 </nav>
 <!-- Script eliminado: el cambio de idioma real lo hace changeLanguage, y el menú móvil puede implementarse con Alpine.js, React, etc si se requiere interactividad real. -->
 
