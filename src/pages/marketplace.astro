@@ -1,0 +1,318 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Datos completos de productos para el marketplace
+const allProducts = [
+  {
+    id: 1,
+    name: "Pendientes pequeños flor 6",
+    category: "Aretes",
+    price: "S/ 76.00",
+    originalPrice: null,
+    image: "/aretespequeños.jpg",
+    description: "Elegantes pendientes pequeños con diseño floral elaborados con técnica de filigrana tradicional.",
+    whatsappMessage: "Hola, me interesa el producto: Pendientes pequeños flor 6 - S/ 76.00",
+    stock: 5,
+    dimensions: "2.5 cm (largo) x 1.2 cm (ancho)"
+  },
+  {
+    id: 2,
+    name: "Pendientes pequeños flor 5",
+    category: "Aretes",
+    price: "S/ 59.50",
+    originalPrice: null,
+    image: "/aretespequeños.jpg",
+    description: "Aretes colgantes pequeños, elaborados con la técnica de la filigrana, la cual consiste en el tejido con hilos de plata.",
+    whatsappMessage: "Hola, me interesa el producto: Pendientes pequeños flor 5 - S/ 59.50",
+    stock: 1,
+    dimensions: "3.2 cm (largo) x 1.6 cm (ancho)"
+  },
+  {
+    id: 3,
+    name: "Aretes pequeños flor con pedrería",
+    category: "Aretes",
+    price: "S/ 65.00",
+    originalPrice: null,
+    image: "/AretesGuia.png",
+    description: "Hermosos aretes pequeños con diseño floral y detalles de pedrería que realzan su elegancia.",
+    whatsappMessage: "Hola, me interesa el producto: Aretes pequeños flor con pedrería - S/ 65.00",
+    stock: 3,
+    dimensions: "2.8 cm (largo) x 1.4 cm (ancho)"
+  },
+  {
+    id: 4,
+    name: "Aretes de Filigrana Clásicos",
+    category: "Aretes",
+    price: "S/ 120.00",
+    originalPrice: null,
+    image: "/AretesGuia.png",
+    description: "Elegantes aretes elaborados con técnica tradicional de filigrana en plata 950.",
+    whatsappMessage: "Hola, me interesa el producto: Aretes de Filigrana Clásicos - S/ 120.00",
+    stock: 4,
+    dimensions: "4.0 cm (largo) x 2.0 cm (ancho)"
+  },
+  {
+    id: 5,
+    name: "Anillos de Plata",
+    category: "Anillos",
+    price: "S/ 85.00",
+    originalPrice: "S/ 95.00",
+    image: "/1.png",
+    description: "Anillos elaborados en plata 950 con diseños únicos de filigrana tradicional.",
+    whatsappMessage: "Hola, me interesa el producto: Anillos de Plata - S/ 85.00",
+    stock: 6,
+    dimensions: "Tallas disponibles: 6, 7, 8, 9"
+  },
+  {
+    id: 6,
+    name: "Collares Artesanales",
+    category: "Collares",
+    price: "S/ 180.00",
+    originalPrice: null,
+    image: "/logosmall.png",
+    description: "Collares únicos elaborados con técnica de filigrana, perfectos para ocasiones especiales.",
+    whatsappMessage: "Hola, me interesa el producto: Collares Artesanales - S/ 180.00",
+    stock: 2,
+    dimensions: "45 cm de largo"
+  },
+  {
+    id: 7,
+    name: "Porta lapiceros Decorativo",
+    category: "Porta lapiceros",
+    price: "S/ 95.00",
+    originalPrice: null,
+    image: "/Portala.jpg",
+    description: "Elegante porta lapiceros elaborado en filigrana, ideal para escritorio u oficina.",
+    whatsappMessage: "Hola, me interesa el producto: Porta lapiceros Decorativo - S/ 95.00",
+    stock: 3,
+    dimensions: "8 cm (alto) x 6 cm (diámetro)"
+  },
+  {
+    id: 8,
+    name: "Prendedor Colibrí",
+    category: "Prendedores",
+    price: "S/ 95.00",
+    originalPrice: null,
+    image: "/PrendedorColibri.jpg",
+    description: "Hermoso prendedor con forma de colibrí, símbolo de libertad y belleza.",
+    whatsappMessage: "Hola, me interesa el producto: Prendedor Colibrí - S/ 95.00",
+    stock: 4,
+    dimensions: "5 cm (largo) x 3 cm (ancho)"
+  },
+  {
+    id: 9,
+    name: "Pulseras de Filigrana",
+    category: "Pulseras",
+    price: "S/ 140.00",
+    originalPrice: null,
+    image: "/Se.png",
+    description: "Pulseras elegantes elaboradas con hilos de plata en técnica de filigrana tradicional.",
+    whatsappMessage: "Hola, me interesa el producto: Pulseras de Filigrana - S/ 140.00",
+    stock: 5,
+    dimensions: "18-20 cm (ajustable)"
+  },
+  {
+    id: 10,
+    name: "Pavo Real en Filigrana",
+    category: "Figuras Decorativas",
+    price: "S/ 450.00",
+    originalPrice: null,
+    image: "/Pavo.jpg",
+    description: "Majestuosa figura de pavo real elaborada completamente en filigrana de plata.",
+    whatsappMessage: "Hola, me interesa el producto: Pavo Real en Filigrana - S/ 450.00",
+    stock: 1,
+    dimensions: "15 cm (alto) x 12 cm (ancho)"
+  },
+  {
+    id: 11,
+    name: "Delfín Decorativo",
+    category: "Figuras Decorativas",
+    price: "S/ 320.00",
+    originalPrice: null,
+    image: "/Deflin.jpg",
+    description: "Figura decorativa de delfín en filigrana, perfecta para decorar espacios elegantes.",
+    whatsappMessage: "Hola, me interesa el producto: Delfín Decorativo - S/ 320.00",
+    stock: 2,
+    dimensions: "12 cm (largo) x 8 cm (alto)"
+  },
+  {
+    id: 12,
+    name: "Caballo Decorativo",
+    category: "Figuras Decorativas",
+    price: "S/ 380.00",
+    originalPrice: null,
+    image: "/caballo.png",
+    description: "Elegante figura de caballo elaborada en filigrana, símbolo de fuerza y elegancia.",
+    whatsappMessage: "Hola, me interesa el producto: Caballo Decorativo - S/ 380.00",
+    stock: 1,
+    dimensions: "14 cm (alto) x 10 cm (largo)"
+  }
+];
+
+const categories = ["Todos", "Aretes", "Anillos", "Collares", "Porta lapiceros", "Prendedores", "Pulseras", "Figuras Decorativas"];
+const whatsappNumber = "51987654321";
+---
+
+<Layout title="Marketplace - Filigrana Catacaos">
+  <main class="min-h-screen bg-cream">
+    <!-- Header del Marketplace -->
+    <section class="bg-gradient-to-r from-gold to-bronze py-16">
+      <div class="w-[90vw] max-w-[1400px] mx-auto text-center">
+        <h1 class="text-charcoal text-4xl md:text-6xl font-bold mb-4">MARKETPLACE</h1>
+        <p class="text-charcoal-dark text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          Descubre nuestra colección completa de productos artesanales elaborados con la técnica tradicional de filigrana de Catacaos
+        </p>
+      </div>
+    </section>
+
+    <!-- Filtros y Categorías -->
+    <section class="w-[90vw] max-w-[1400px] mx-auto py-8">
+      <div class="flex flex-wrap gap-4 justify-center mb-8">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-charcoal font-semibold text-lg">CATEGORÍAS:</span>
+          <button class="bg-charcoal text-ivory px-4 py-2 rounded-full text-sm font-medium hover:bg-gold hover:text-charcoal transition-all duration-300">
+            Ordenar ▼
+          </button>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-3 justify-center">
+        {categories.map(category => (
+          <button 
+            class="category-filter px-6 py-2 rounded-full border-2 border-warm-gray-light bg-ivory text-charcoal hover:bg-gold hover:border-gold hover:text-charcoal transition-all duration-300 font-medium"
+            data-category={category}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- Grid de Productos -->
+    <section class="w-[90vw] max-w-[1400px] mx-auto pb-16">
+      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+        {allProducts.map(product => (
+          <div class="product-card bg-ivory border-2 border-warm-gray-light rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl hover:border-gold transition-all duration-300 transform hover:scale-105" data-category={product.category}>
+            
+            <!-- Imagen del producto -->
+            <div class="aspect-square overflow-hidden relative">
+              <img 
+                src={product.image} 
+                alt={product.name}
+                class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+              />
+              
+              <!-- Badge de categoría -->
+              <div class="absolute top-3 left-3">
+                <span class="bg-gold text-charcoal text-xs font-semibold px-2 py-1 rounded-full shadow-md">
+                  {product.category}
+                </span>
+              </div>
+              
+              <!-- Badge de stock -->
+              {product.stock <= 2 && (
+                <div class="absolute top-3 right-3">
+                  <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-md">
+                    Solo {product.stock} disponible{product.stock > 1 ? 's' : ''}
+                  </span>
+                </div>
+              )}
+            </div>
+            
+            <!-- Información del producto -->
+            <div class="p-4 md:p-6">
+              <h3 class="text-charcoal text-lg md:text-xl font-bold mb-2 line-clamp-2">
+                {product.name}
+              </h3>
+              
+              <p class="text-warm-gray-dark text-sm md:text-base mb-4 line-clamp-3 leading-relaxed">
+                {product.description}
+              </p>
+              
+              <!-- Precio -->
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-charcoal text-xl md:text-2xl font-bold">
+                    {product.price}
+                  </span>
+                  {product.originalPrice && (
+                    <span class="text-warm-gray-dark text-sm line-through">
+                      {product.originalPrice}
+                    </span>
+                  )}
+                </div>
+                <a 
+                  href={`/pieza/${product.id}`}
+                  class="group text-gold hover:text-bronze text-sm font-semibold underline decoration-2 underline-offset-4 transition-all duration-200 hover:decoration-bronze flex items-center gap-1"
+                >
+                  Ver más
+                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+              
+              <!-- Botón de WhatsApp -->
+              <a 
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(product.whatsappMessage)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:-translate-y-1 flex items-center justify-center gap-2 border-2 border-transparent hover:border-green-300"
+              >
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                </svg>
+                <span class="text-base font-bold">Pedir por WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Funcionalidad de filtros
+    document.addEventListener('DOMContentLoaded', function() {
+      const categoryFilters = document.querySelectorAll('.category-filter');
+      const productCards = document.querySelectorAll('.product-card');
+      
+      categoryFilters.forEach(filter => {
+        filter.addEventListener('click', function() {
+          const selectedCategory = this.getAttribute('data-category');
+          
+          // Actualizar estilos de filtros activos
+          categoryFilters.forEach(f => {
+            f.classList.remove('bg-gold', 'border-gold', 'text-charcoal');
+            f.classList.add('bg-ivory', 'border-warm-gray-light', 'text-charcoal');
+          });
+          
+          this.classList.remove('bg-ivory', 'border-warm-gray-light');
+          this.classList.add('bg-gold', 'border-gold', 'text-charcoal');
+          
+          // Filtrar productos
+          productCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            
+            if (selectedCategory === 'Todos' || cardCategory === selectedCategory) {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+              }, 50);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.8)';
+              setTimeout(() => {
+                card.style.display = 'none';
+              }, 300);
+            }
+          });
+        });
+      });
+      
+      // Activar filtro "Todos" por defecto
+      document.querySelector('[data-category="Todos"]').click();
+    });
+  </script>
+</Layout>
